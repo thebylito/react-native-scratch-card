@@ -1,6 +1,8 @@
 
-# react-native-scratch-card
-#### (Android Only)
+## react-native-scratch-card (Android Only)
+
+
+#### Thanks for https://github.com/D-clock/ScratchView/
 
 <center>
 <img style="align:center" src="preview.gif" height="600">
