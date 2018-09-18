@@ -1,6 +1,10 @@
 
 # react-native-scratch-card
+#### (Android Only)
 
+<center>
+<img style="align:center" src="preview.gif" height="600">
+</center>
 ## Getting started
 
 `$ npm install react-native-scratch-card --save`
@@ -10,14 +14,6 @@
 `$ react-native link react-native-scratch-card`
 
 ### Manual installation
-
-
-#### iOS
-
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-scratch-card` and add `RNScratchCard.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNScratchCard.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
 
 #### Android
 
@@ -34,20 +30,40 @@
       compile project(':react-native-scratch-card')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNScratchCard.sln` in `node_modules/react-native-scratch-card/windows/RNScratchCard.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Scratch.Card.RNScratchCard;` to the usings at the top of the file
-  - Add `new RNScratchCardPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
-## Usage
+## Example
 ```javascript
-import RNScratchCard from 'react-native-scratch-card';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import ScratchCard from 'react-native-scratch-card'
 
-// TODO: What to do with the module?
-RNScratchCard;
+export default class App extends Component {
+  state = { color: 'red', status: 0 }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>{this.state.status}</Text>
+        <ScratchCard
+          getPercent={(percent) => {
+            this.setState({ status: percent })
+          }}
+          onEnd={() => { Alert.alert('acabou!') }}
+          maxPercent={50}
+          style={{ justifyContent: 'center', alignItems: 'center', width: 400, height: 400 }}
+          color={'gray'}>
+          <Image source={require('./reactImage.png')} resizeMode="contain" />
+        </ScratchCard>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  }
+});
 ```
   
