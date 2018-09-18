@@ -1,0 +1,37 @@
+{
+  "name": "react-native-scratch-card",
+  "title": "React Native Scratch Card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github_account/react-native-scratch-card.git",
+    "baseUrl": "https://github.com/github_account/react-native-scratch-card"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Welington da Silva Martins",
+    "email": "thebylito@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "16.0.0-alpha.6",
+    "prop-types": "^15.6.2",
+    "react-native": "^0.55.4",
+    "react-native-windows": "0.41.0-rc.1"
+  },
+  "devDependencies": {
+    "react": "16.0.0-alpha.6",
+    "prop-types": "^15.6.2",
+    "react-native": "^0.55.4",
+    "react-native-windows": "0.41.0-rc.1"
+  }
+}
