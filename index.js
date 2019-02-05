@@ -8,6 +8,7 @@ const iface = {
   name: 'RNScratchCardManager',
   propTypes: {
     color: PropTypes.string,
+    maxPercent: PropTypes.number,
     ...ViewPropTypes
   }
 };
