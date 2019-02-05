@@ -7,6 +7,7 @@ const { RNScratchCard } = NativeModules;
 const iface = {
   name: 'RNScratchCardManager',
   propTypes: {
+    brushSize: PropTypes.number,
     color: PropTypes.string,
     maxPercent: PropTypes.number,
     ...ViewPropTypes
