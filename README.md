@@ -45,13 +45,15 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text>{this.state.status}</Text>
         <ScratchCard
+          brushSize={125}
           getPercent={(percent) => {
             this.setState({ status: percent })
           }}
           onEnd={() => { Alert.alert('acabou!') }}
           maxPercent={50}
           style={{ justifyContent: 'center', alignItems: 'center', width: 400, height: 400 }}
-          color={'gray'}>
+          color={'gray'}
+         >
           <Image source={require('./reactImage.png')} resizeMode="contain" />
         </ScratchCard>
       </View>
