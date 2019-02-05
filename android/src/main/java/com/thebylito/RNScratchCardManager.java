@@ -61,6 +61,11 @@ public class RNScratchCardManager extends ViewGroupManager<FrameLayout> {
     public void setMaxPercent(FrameLayout view, Integer percent) {
         scratchView.setMaxPercent(percent);
     }
+    
+    @ReactProp(name = "brushSize")
+    public void setBrushSize(FrameLayout view, Integer size) {
+        scratchView.setEraserSize(size);
+    }
 
     private void emitPan(Integer valor) {
         WritableMap args = Arguments.createMap();
