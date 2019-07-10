@@ -1,7 +1,11 @@
-
-import React, { Component } from 'react'
-import { requireNativeComponent, ViewPropTypes, NativeModules, DeviceEventEmitter } from 'react-native';
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import {
+  requireNativeComponent,
+  ViewPropTypes,
+  NativeModules,
+  DeviceEventEmitter,
+} from 'react-native';
+import PropTypes from 'prop-types';
 
 const { RNScratchCard } = NativeModules;
 const iface = {
@@ -10,63 +14,48 @@ const iface = {
     brushSize: PropTypes.number,
     color: PropTypes.string,
     maxPercent: PropTypes.number,
-    ...ViewPropTypes
-  }
+    ...ViewPropTypes,
+  },
 };
 
 const RCTRNScratchCard = requireNativeComponent('RNScratchCardManager', iface);
 
 class RNScratchCardView extends Component {
-  state = { ready: true }
+  state = { ready: true };
   componentDidMount = () => {
-    DeviceEventEmitter.addListener('percentEv', this.listem)
-  }
+    DeviceEventEmitter.addListener('percentEv', this.listem);
+  };
 
-  listem = (data) => {
+  listem = data => {
     const { ready } = this.state;
-    this.props.getPercent(data.value)
+    this.props.getPercent(data.value);
     if (data.value >= this.props.maxPercent) {
-
       if (ready) {
         this.setState({ ready: false }, () => {
-          this.props.onEnd()
-        })
+          this.props.onEnd();
+        });
       }
     }
     if (data.value >= 100) {
-      DeviceEventEmitter.removeAllListeners()
+      DeviceEventEmitter.removeAllListeners();
     }
-  }
+  };
 
   componentWillUnmount = () => {
-    DeviceEventEmitter.removeAllListeners()
-  }
+    DeviceEventEmitter.removeAllListeners();
+  };
 
   render() {
-    return <RCTRNScratchCard ref={myView => { this.myView = myView }} {...this.props} />
+    return (
+      <RCTRNScratchCard
+        ref={myView => {
+          this.myView = myView;
+        }}
+        {...this.props}
+      />
+    );
   }
 }
 
 export default RNScratchCardView;
 export { RNScratchCard };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
